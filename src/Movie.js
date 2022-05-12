@@ -1,9 +1,10 @@
 import React from 'react';
+import './Movie.css';
 
 const Movie = ({ poster, title, rating }) => {
   return (
-    <div>
-      <div className="movie-poster" src={poster}></div>
+    <div className="movie-thumbnail">
+      <div className="movie-poster" style={{ backgroundImage: `url(${poster})` }}></div>
       <h2>{title}</h2>
       <p>{rating}</p>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './Movie.js';
+import './MoviesContainer.css';
 
 const MoviesContainer = ({ movies }) => {
   const movieThumbnails = movies.map(element => {
@@ -13,7 +14,7 @@ const MoviesContainer = ({ movies }) => {
   })
 
   return (
-    <div>
+    <div className="movies-container">
       {movieThumbnails}
     </div>
   )
