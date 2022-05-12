@@ -1,0 +1,6 @@
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  justify-content: center;
+}
