@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import React, { Component } from 'react';
 import movieData from './movieData.js';
+import MoviesContainer from './Components/MoviesContainer.js';
 import './App.css';
 
 class App extends Component {
@@ -28,6 +29,7 @@ export default App;
 // Find a place to store movieData (state)
 
 // Make components (MoviesContainer & Movie)
+// Importing components
 // Pass down movieData information
 
 
