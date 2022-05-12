@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Rancid Tomatillos</h1>
+        <h1 className="page-header">Rancid Tomatillos</h1>
         <MoviesContainer movies={this.state.movies} />
       </div>
     );
@@ -22,7 +22,3 @@ class App extends Component {
 }
 
 export default App;
-
-// Next steps:
-// Fix homepage styling
-// Round ratings if wanted
