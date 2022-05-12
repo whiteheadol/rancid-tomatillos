@@ -6,7 +6,7 @@ const Movie = ({ poster, title, rating }) => {
     <div className="movie-thumbnail">
       <div className="movie-poster" style={{ backgroundImage: `url(${poster})` }}></div>
       <h2 className="movie-title">{title}</h2>
-      <p className="movie-rating">{rating}</p>
+      <p className="movie-rating">Rating: {rating.toFixed(2)}</p>
     </div>
   )
 };
