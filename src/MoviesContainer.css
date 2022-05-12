@@ -1,0 +1,9 @@
+/* Make this a flexbox, give column/row structure
+Figure out scroll? */
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  justify-content: center;
+}

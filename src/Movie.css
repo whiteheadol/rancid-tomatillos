@@ -1,0 +1,17 @@
+/* target movie-poster and make them a good size, display poster image, format title and rating */
+
+.movie-thumbnail {
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  width: 20vw;
+  margin: 10px;
+  border: 2px solid blue;
+}
+
+.movie-poster {
+  height: 100px;
+  width: 100%;
+  border: 2px solid red;
+  /* background-repeat:  */
+}
