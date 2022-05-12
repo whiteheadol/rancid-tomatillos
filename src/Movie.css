@@ -3,15 +3,21 @@
 .movie-thumbnail {
   display: flex;
   flex-direction: column;
-  height: 25vh;
+  height: 50vh;
   width: 20vw;
   margin: 10px;
   border: 2px solid blue;
+  justify-content: flex-start;
 }
 
 .movie-poster {
-  height: 100px;
+  height: 80%;
   width: 100%;
   border: 2px solid red;
-  /* background-repeat:  */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+.movie-title, .movie-rating {
+  margin: 0;
 }
