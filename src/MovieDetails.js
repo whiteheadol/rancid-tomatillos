@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = ({props}) => {
+const MovieDetails = ({props, moviesContainerHandler}) => {
   return (
     <div className="movie-details">
       <p>{props.movie.title}</p>
@@ -13,7 +13,7 @@ const MovieDetails = ({props}) => {
       <p>{props.movie.revenue}</p>
       <p>{props.movie.runtime}</p>
       <p>{props.movie.tagline}</p>
-      <button className="back-to-homepage"></button>
+      <button className="back-to-homepage" onClick={() => moviesContainerHandler()}></button>
     </div>
   )
 };
