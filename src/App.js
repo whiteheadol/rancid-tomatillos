@@ -29,10 +29,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="page-header">Rancid Tomatillos</h1>
-        { this.state.moviesContainer && <MoviesContainer movies={this.state.movies}
-        moviesContainerHandler={this.moviesContainerHandler} currentMovieHandler={this.currentMovieHandler} /> }
-        { !this.state.moviesContainer && <MovieDetails movies={this.state.movies}
-        moviesContainer={this.state.moviesContainer} currentMovie={this.state.currentMovie}/> }
+        { this.state.moviesContainer && <MoviesContainer movies={this.state.movies} moviesContainerHandler={this.moviesContainerHandler} currentMovieHandler={this.currentMovieHandler} /> }
+        { !this.state.moviesContainer && <MovieDetails props={this.state.currentMovie} /> }
       </div>
     );
   }
