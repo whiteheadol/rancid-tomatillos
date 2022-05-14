@@ -35,6 +35,7 @@ class App extends Component {
     this.setState({ error: false })
   }
 
+  // I think this funciton is redundant, consider removing later
   currentMovieHandler = (id) => {
     const newMovie = this.state.movies.find(movie => movie.id === id);
     this.findFullMovie(id);
