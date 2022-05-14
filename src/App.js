@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import movieData from './movieData.js';
 import MoviesContainer from './MoviesContainer.js';
 import MovieDetails from './MovieDetails.js'
 import dummyData from './dummyData.js'
@@ -9,11 +8,17 @@ class App extends Component {
   constructor() {
     super();
     this.state ={
-      movies: movieData.movies,
+      movies: [],
       currentMovie: '',
       moviesContainer: true,
       dummyData: dummyData
     }
+  }
+
+  componentDidMount = () => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
+    .then(response => response.json())
+    .then(data => this.setState({ movies: data.movies }))
   }
 
   moviesContainerHandler = () => {
