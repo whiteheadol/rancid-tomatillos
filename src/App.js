@@ -10,17 +10,29 @@ class App extends Component {
       movies: [],
       currentMovie: '',
       moviesContainer: true,
+      error: false
     }
   }
 
   componentDidMount = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
-    .then(response => response.json())
-    .then(data => this.setState({ movies: data.movies }))
+      .then(response => {
+        if (response.status >= 200 && response.status <= 299) {
+          return response.json()
+        } else {
+          throw Error(response.statusText);
+        }
+      })
+      .then(data => this.setState({ movies: data.movies }))
+      .catch((error) => {
+        console.log('error')
+        this.setState({ error: true })
+      })
   }
 
   moviesContainerHandler = () => {
     this.setState({ moviesContainer: !this.state.moviesContainer})
+    this.setState({ error: false })
   }
 
   currentMovieHandler = (id) => {
@@ -32,13 +44,19 @@ class App extends Component {
     this.setState({ currentMovie: mov})
   }
 
-
   getPromise = (url) => {
     return fetch(url)
-    .then(response => response.json())
-    .catch(err => {
+    .then(response => {
+      if (response.status >= 200 && response.status <= 299) {
+        return response.json()
+      } else {
+        throw Error(response.statusText);
+      }
+    })
+    .catch((error) => {
       console.log('error')
-      // loadError.innerText = 'we\'re so sorry - there was an error loading your data, please try again later';
+      this.setState({ error: true })
+      this.setState({ moviesContainer: false })
     });
   };
 
@@ -47,6 +65,7 @@ class App extends Component {
       .then(data => data.movie)
       .then(movie => this.setState({ currentMovie: movie }))
       .then(resolution => {
+        this.setState({ error: false })
         this.moviesContainerHandler();
       })
   }
@@ -55,8 +74,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="page-header">Rancid Tomatillos</h1>
-        { this.state.moviesContainer && <MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} /> }
-        { (!this.state.moviesContainer) && <MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler={this.moviesContainerHandler} /> }
+        { this.state.moviesContainer && <MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} /> }
+        { (!this.state.moviesContainer) && <MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler={this.moviesContainerHandler} error={this.state.error} /> }
       </div>
     );
   }
