@@ -2,7 +2,7 @@ import React from 'react';
 import Movie from './Movie.js';
 import './MoviesContainer.css';
 
-const MoviesContainer = ({ movies, moviesContainerHandler, currentMovieHandler }) => {
+const MoviesContainer = ({ movies, currentMovieHandler, error }) => {
   const movieThumbnails = movies.map(element => {
     return (
       <Movie
@@ -10,7 +10,7 @@ const MoviesContainer = ({ movies, moviesContainerHandler, currentMovieHandler }
         title= {element.title}
         rating={element.average_rating}
         key={element.id}
-        moviesContainerHandler={moviesContainerHandler}
+        id={element.id}
         currentMovieHandler={currentMovieHandler}
         />
     )
@@ -18,6 +18,7 @@ const MoviesContainer = ({ movies, moviesContainerHandler, currentMovieHandler }
 
   return (
     <div className="movies-container">
+      {error && <h3 className="load-error">Sorry, there was an error. Please try again later.</h3>}
       {movieThumbnails}
     </div>
   )
