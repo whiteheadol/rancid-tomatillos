@@ -12,13 +12,18 @@
 }
 
 .movie-poster {
-  height: 80%;
+  height: 100%;
   width: 100%;
   /* border: 2px solid red; */
   background-size: 100% 100%;
   background-repeat: no-repeat;
   justify-content: center;
   border-radius: 5px
+}
+
+.movie-link {
+  height: 80%;
+  width: 100%
 }
 
 .movie-title, .movie-rating {
