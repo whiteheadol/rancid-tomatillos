@@ -79,11 +79,23 @@ class App extends Component {
 
   render() {
     return (
+     //  <BrowserRouter>
+     //   <div className="App">
+     //    <h1 className="page-header">Rancid Tomatillos</h1>
+     //       <Switch>
+     //        <Route path="/" component={Home} exact/>
+     //        <Route path="/about" component={About}/>
+     //        <Route path="/contact" component={Contact}/>
+     //       <Route component={Error}/>
+     //      </Switch>
+     //   </div>
+     // </BrowserRouter>
+     <Router>
       <div className="App">
-        <h1 className="page-header">Rancid Tomatillos</h1>
         { this.state.moviesContainer && <MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} /> }
         { (!this.state.moviesContainer) && <MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler={this.moviesContainerHandler} error={this.state.error} /> }
       </div>
+    </Router>  
     );
   }
 }
