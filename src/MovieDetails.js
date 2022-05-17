@@ -1,7 +1,8 @@
 import React from 'react';
 import './MovieDetails.css';
+import { Link } from 'react-router-dom';
 
-const MovieDetails = ({currentMovie, moviesContainerHandler, error}) => {
+const MovieDetails = ({currentMovie, error}) => {
   return (
     <div className="movie-details">
       <div className="movie-backdrop"  style={{ backgroundImage: `url(${currentMovie.backdrop_path})` }}>
@@ -19,10 +20,12 @@ const MovieDetails = ({currentMovie, moviesContainerHandler, error}) => {
         </div>
       }
       </div>
-      <button className="back-to-homepage" onClick={() => moviesContainerHandler()}><strong>Back to Home</strong></button>
+      <Link to={`/`}><button className="back-to-homepage" ><strong>Back to Home</strong></button></Link>
     </div>
   )
 };
+
+
 
 
 
