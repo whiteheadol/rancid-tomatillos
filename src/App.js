@@ -4,7 +4,8 @@ import {
   Switch,
   Route,
   Routes,
-  Link
+  Link,
+  useParams
 } from "react-router-dom";
 import MoviesContainer from './MoviesContainer.js';
 import MovieDetails from './MovieDetails.js'
@@ -21,6 +22,7 @@ class App extends Component {
     }
   }
 
+
   componentDidMount = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
       .then(response => {
@@ -34,8 +36,12 @@ class App extends Component {
       .catch((error) => {
         console.log('error')
         this.setState({ error: true })
-      })
+      });
+
+      console.log('State:', this.state)
   }
+
+
 
   moviesContainerHandler = () => {
     this.setState({ moviesContainer: !this.state.moviesContainer})
@@ -84,6 +90,9 @@ class App extends Component {
        <div className="App">
         <h1 className="page-header">Rancid Tomatillos</h1>
         <Routes>
+          <Route  path="/" element={<MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} />}/>
+        </Routes>
+        <Routes>
             <Route exact path="/:id" element={<MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler= {this.moviesContainerHandler} error={this.state.error}/>}
             render={({match}) => {
               const movieToRender = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
@@ -91,9 +100,7 @@ class App extends Component {
             }}
              />
         </Routes>
-        <Routes>
-          <Route exact path="/" element={<MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} />}/>
-        </Routes>
+
        </div>
      </Router>
     //  <Router>
