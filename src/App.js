@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Routes,
   Link
 } from "react-router-dom";
 import MoviesContainer from './MoviesContainer.js';
@@ -79,23 +80,28 @@ class App extends Component {
 
   render() {
     return (
-     //  <BrowserRouter>
-     //   <div className="App">
-     //    <h1 className="page-header">Rancid Tomatillos</h1>
-     //       <Switch>
-     //        <Route path="/" component={Home} exact/>
-     //        <Route path="/about" component={About}/>
-     //        <Route path="/contact" component={Contact}/>
-     //       <Route component={Error}/>
-     //      </Switch>
-     //   </div>
-     // </BrowserRouter>
-     <Router>
-      <div className="App">
-        { this.state.moviesContainer && <MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} /> }
-        { (!this.state.moviesContainer) && <MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler={this.moviesContainerHandler} error={this.state.error} /> }
-      </div>
-    </Router>  
+      <Router>
+       <div className="App">
+        <h1 className="page-header">Rancid Tomatillos</h1>
+        <Routes>
+            <Route exact path="/:id" element={<MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler= {this.moviesContainerHandler} error={this.state.error}/>}
+            render={({match}) => {
+              const movieToRender = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
+              return <MovieDetails {...movieToRender} />
+            }}
+             />
+        </Routes>
+        <Routes>
+          <Route exact path="/" element={<MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} />}/>
+        </Routes>
+       </div>
+     </Router>
+    //  <Router>
+    //   <div className="App">
+    //     { this.state.moviesContainer && <MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} /> }
+    //     { (!this.state.moviesContainer) && <MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler={this.moviesContainerHandler} error={this.state.error} /> }
+    //   </div>
+    // </Router>
     );
   }
 }
