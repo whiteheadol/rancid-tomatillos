@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MovieDetails.css';
 
 const MovieDetails = ({currentMovie, moviesContainerHandler, error}) => {
@@ -19,7 +20,9 @@ const MovieDetails = ({currentMovie, moviesContainerHandler, error}) => {
         </div>
       }
       </div>
-      <button className="back-to-homepage" onClick={() => moviesContainerHandler()}><strong>Back to Home</strong></button>
+      <Link className="home-link" to={`/`}>
+        <button className="back-to-homepage" onClick={() => moviesContainerHandler()}><strong>Back to Home</strong></button>
+      </Link>
     </div>
   )
 };
