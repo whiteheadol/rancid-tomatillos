@@ -11,8 +11,13 @@
   border-radius: 5px
 }
 
-.movie-poster {
+.nav-link {
   height: 80%;
+  width: 100%;
+}
+
+.movie-poster {
+  height: 100%;
   width: 100%;
   /* border: 2px solid red; */
   background-size: 100% 100%;
