@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import MoviesContainer from './MoviesContainer.js';
 import MovieDetails from './MovieDetails.js'
 import './App.css';
