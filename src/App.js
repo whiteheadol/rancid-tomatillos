@@ -11,7 +11,6 @@ class App extends Component {
     this.state ={
       movies: [],
       currentMovie: '',
-      // moviesContainer: true,
       error: false
     }
   }
@@ -32,20 +31,15 @@ class App extends Component {
       })
   }
 
-  // moviesContainerHandler = () => {
-  //   this.setState({ moviesContainer: !this.state.moviesContainer})
-  //   this.setState({ error: false })
-  // }
-
   currentMovieHandler = (id) => {
     const newMovie = this.state.movies.find(movie => movie.id === id);
     this.findFullMovie(id);
   }
 
   // I think this funciton is redundant, consider removing later
-  reassignCurrentMovie = (mov) => {
-    this.setState({ currentMovie: mov})
-  }
+  // reassignCurrentMovie = (mov) => {
+  //   this.setState({ currentMovie: mov})
+  // }
 
   getPromise = (url) => {
     return fetch(url)
@@ -59,7 +53,6 @@ class App extends Component {
     .catch((error) => {
       console.log('error')
       this.setState({ error: true })
-      // this.setState({ moviesContainer: false })
     });
   };
 
@@ -69,7 +62,6 @@ class App extends Component {
       .then(movie => this.setState({ currentMovie: movie }))
       .then(resolution => {
         this.setState({ error: false })
-        // this.moviesContainerHandler();
       })
   }
 
@@ -89,23 +81,5 @@ class App extends Component {
     );
   }
 }
-
-// const movieToRender = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
-
-// this.currentMovieHandler(movieToRender.id)
-
-// currentMovie={this.state.currentMovie} error={this.state.error}
-
-// <Route
-//   exact path="/puppies/:id"
-//   render={({match}) => {
-//     const creatureToRender = puppies.find(creature => creature.id === parseInt(match.params.id));
-//     return <CreatureDetails {...creatureToRender} />
-//   }}
-// />
-
-// { this.state.moviesContainer && <MoviesContainer movies={this.state.movies} currentMovieHandler={this.currentMovieHandler} error={this.state.error} /> }
-// { (!this.state.moviesContainer) && <MovieDetails currentMovie={this.state.currentMovie} moviesContainerHandler={this.moviesContainerHandler} error={this.state.error} /> }
-
 
 export default App;
