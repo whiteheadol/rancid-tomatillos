@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from './Movie.js';
+import Movie from '../Movie/Movie.js';
 import './MoviesContainer.css';
 
 const MoviesContainer = ({ movies, currentMovieHandler, error }) => {

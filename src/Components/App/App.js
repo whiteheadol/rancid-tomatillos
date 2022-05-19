@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MoviesContainer from './MoviesContainer.js';
-import MovieDetails from './MovieDetails.js'
+import MoviesContainer from '../MoviesContainer/MoviesContainer.js';
+import MovieDetails from '../MovieDetails/MovieDetails.js';
 import './App.css';
 import { Route } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
       .then(response => {
-        if (response.status >= 200 && response.status <= 299) {
+        if (response.ok) {
           return response.json()
         } else {
           throw Error(response.statusText);
