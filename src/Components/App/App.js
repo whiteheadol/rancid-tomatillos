@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer.js';
 import MovieDetails from '../MovieDetails/MovieDetails.js';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 
 class App extends Component {
@@ -25,7 +25,6 @@ class App extends Component {
       })
       .then(data => this.setState({ movies: data.movies }))
       .catch((error) => {
-        console.log('error')
         this.setState({ error: true })
       })
   }
@@ -39,8 +38,8 @@ class App extends Component {
           exact path='/:id'
           render={({match}) => {
             return <MovieDetails currentId={match.params.id} />
-          } }
-        />
+          } } />
+        <Redirect to="/" />
       </div>
     );
   }

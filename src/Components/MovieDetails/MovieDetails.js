@@ -23,7 +23,6 @@ class MovieDetails extends Component {
         .then(data => data.movie)
         .then(movie => this.setState({ currentMovie: movie }))
         .catch((error) => {
-          console.log('error')
           this.setState({ error: true })
         })
     }
@@ -31,8 +30,8 @@ class MovieDetails extends Component {
   render() {
     return (
           <div className="movie-details">
+          {!this.state.error &&
             <div className="movie-backdrop"  style={{ backgroundImage: `url(${this.state.currentMovie.backdrop_path})` }}>
-
               <div className="movie-text">
                   <p className="title"><strong>{this.state.currentMovie.title}: </strong>{this.state.currentMovie.tagline}</p>
                   <p>{this.state.currentMovie.overview}</p>
@@ -43,8 +42,9 @@ class MovieDetails extends Component {
                   <p><strong>Revenue: </strong>{this.state.currentMovie.revenue}</p>
                   <p><strong>Runtime: </strong>{this.state.currentMovie.runtime} min.</p>
               </div>
-
             </div>
+          }
+          {this.state.error && <h3 className="load-error">Sorry, there was an error. Please try again later.</h3>}
             <Link to={`/`}><button className="back-to-homepage" ><strong>Back to Home</strong></button></Link>
           </div>
     )
