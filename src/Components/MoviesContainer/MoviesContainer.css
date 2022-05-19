@@ -4,3 +4,7 @@
   overflow-y: scroll;
   justify-content: center;
 }
+.load-error {
+  font-size: 40px;
+  color: white
+}
