@@ -11,9 +11,26 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe('example to-do app', () => {
+describe('Rancid Tomatillos', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      fixture: 'movieList'
+    })
+      // it('should be able to fill out the email and password and click Submit, directing the user to a different page', () => {
+      //   cy.intercept('POST', 'http://localhost:3001/api/v1/login', {
+      //       statusCode: 201,
+      //       body: {
+      //         id: 2,
+      //         image: "https://ca.slack-edge.com/T029P2S9M-U37MJAV0T-007ccf2f5eb2-512",
+      //         name: "Leta Keane"
+      //       }
+      //     })
+      //     .get('input[type="email"]').type('leta@turing.io')
+      //     .get('input[type="password"]').type('keane20')
+      //     .get('button').click()
+      //     .url().should('include', '/dashboard')
+      // });
   })
 
   it('displays homepage by default', () => {
@@ -45,4 +62,7 @@ describe('example to-do app', () => {
     cy.get('.movie-thumbnail').last().should('have.text', 'I Still BelieveRating: 3.83')
 
   })
+
+
+
 })
