@@ -6,7 +6,7 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state ={
-      currentMovie: '',
+      currentMovie: {},
       error: false
     }
   }
@@ -14,7 +14,7 @@ class MovieDetails extends Component {
   componentDidMount = () => {
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.currentId}`)
         .then(response => {
-          if (response.status >= 200 && response.status <= 299) {
+          if (response.ok) {
             return response.json()
           } else {
             throw Error(response.statusText);
