@@ -5,7 +5,7 @@ class SortInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: 'any'
+      search: ''
     }
   }
 
@@ -15,8 +15,8 @@ class SortInput extends Component {
   }
 
   clearSearch = event => {
-    this.setState({ search: 'any' })
-    this.props.updateSearchedMovies('any')
+    // this.setState({ search: 'any' })
+    this.props.updateSearchedMovies('')
   }
 
   render() {

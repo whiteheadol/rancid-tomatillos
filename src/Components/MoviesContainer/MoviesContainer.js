@@ -31,7 +31,9 @@ const MoviesContainer = ({ movies, searchBy, error }) => {
     })
   } else {
     movieThumbnails = movies.map(element => {
-      if (element.title.inlcudes(`${searchBy}`)) {
+      let newSearchBy = searchBy.toLowerCase();
+      let newTitle = element.title.toLowerCase();
+      if (newTitle.includes(`${newSearchBy}`)) {
         return (
           <Movie
             poster={element.poster_path}
