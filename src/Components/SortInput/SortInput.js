@@ -1,0 +1,39 @@
+import React, {Component} from 'react';
+import './SortInput.css';
+
+class SortInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: 'any'
+    }
+  }
+
+  handleChange = event => {
+    this.setState({ search: event.target.value })
+    this.props.updateSearchedMovies(event.target.value)
+  }
+
+  clearSearch = event => {
+    this.setState({ search: 'any' })
+    this.props.updateSearchedMovies('any')
+  }
+
+  render() {
+    return (
+      <form>
+        <input
+        type="text"
+        placeholder="search by name"
+        name="search"
+        className="search-input"
+        value={this.state.search}
+        onChange={event => this.handleChange(event)}
+        />
+        <button className="submit-button" onClick={event => this.clearSearch(event)}>Clear Search</button>
+      </form>
+    )
+  }
+}
+
+export default SortInput;
