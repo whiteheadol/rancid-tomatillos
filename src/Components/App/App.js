@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer.js';
 import MovieDetails from '../MovieDetails/MovieDetails.js';
+import SortInput from '../SortInput/SortInput.js';
 import './App.css';
 import { Route, Redirect } from 'react-router-dom';
 
@@ -10,7 +11,8 @@ class App extends Component {
     super();
     this.state ={
       movies: [],
-      error: false
+      error: false,
+      searchBy: 'any'
     }
   }
 
@@ -29,11 +31,21 @@ class App extends Component {
       })
   }
 
+  updateSearchedMovies = (input) => {
+    this.setState({ searchBy: input })
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="page-header">Rancid Tomatillos</h1>
-        <Route exact path='/' render={ () => <MoviesContainer movies={this.state.movies} error={this.state.error} /> } />
+        <Route exact path='/' render={ () => {
+          return <div className="main-page">
+            <SortInput updateSearchedMovies={this.updateSearchedMovies} />
+            <MoviesContainer movies={this.state.movies} error={this.state.error} searchBy={this.state.searchBy} />
+          </div>
+        }}
+        />
         <Route
           exact path='/:id'
           render={({match}) => {
