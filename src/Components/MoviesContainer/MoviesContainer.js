@@ -1,20 +1,49 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
 import './MoviesContainer.css';
+// import drowdown component
 
-const MoviesContainer = ({ movies, currentMovieHandler, error }) => {
-  const movieThumbnails = movies.map(element => {
-    return (
-      <Movie
-        poster={element.poster_path}
-        title= {element.title}
-        rating={element.average_rating}
-        key={element.id}
-        id={element.id}
-        currentMovieHandler={currentMovieHandler}
+const MoviesContainer = ({ movies, searchBy, error }) => {
+  let movieThumbnails;
+  // const movieThumbnails = movies.map(element => {
+  //   return (
+  //     <Movie
+  //       poster={element.poster_path}
+  //       title= {element.title}
+  //       rating={element.average_rating}
+  //       key={element.id}
+  //       id={element.id}
+  //     />
+  //   )
+  // });
+
+  if (searchBy === 'any') {
+    movieThumbnails = movies.map(element => {
+      return (
+        <Movie
+          poster={element.poster_path}
+          title= {element.title}
+          rating={element.average_rating}
+          key={element.id}
+          id={element.id}
         />
-    )
-  })
+      )
+    })
+  } else {
+    movieThumbnails = movies.map(element => {
+      if (element.title.inlcudes(`${searchBy}`)) {
+        return (
+          <Movie
+            poster={element.poster_path}
+            title= {element.title}
+            rating={element.average_rating}
+            key={element.id}
+            id={element.id}
+          />
+        )
+      }
+    })
+  }
 
   return (
     <div className="movies-container">
