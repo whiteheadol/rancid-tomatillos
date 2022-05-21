@@ -20,11 +20,11 @@ const MoviesContainer = ({ movies, searchBy, error }) => {
       )
     })
   } else {
-    movieThumbnails = movies.map(element => {
+    let placeholder = movies.reduce((acc,element) => {
       let newSearchBy = searchBy.toLowerCase();
-      let newTitle = element.title.toLowerCase();
+        let newTitle = element.title.toLowerCase();
       if (newTitle.includes(`${newSearchBy}`)) {
-        return (
+        acc.push(
           <Movie
             poster={element.poster_path}
             title= {element.title}
@@ -34,7 +34,9 @@ const MoviesContainer = ({ movies, searchBy, error }) => {
           />
         )
       }
-    })
+      return acc;
+    },[])
+    movieThumbnails = placeholder
   }
 
   if(movieThumbnails.length === 0) {
@@ -42,11 +44,12 @@ const MoviesContainer = ({ movies, searchBy, error }) => {
   } else {
     searchError = false
   }
+
   return (
     <div className="movies-container">
       {error && <h3 className="load-error">Sorry, there was an error. Please try again later.</h3>}
       {movieThumbnails}
-      {!searchError && <h3 className="load-error">No Movies Found!</h3>}
+      {searchError && <h3 className="load-error">No Movies Found!</h3>}
     </div>
   )
 }
