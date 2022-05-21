@@ -1,0 +1,5 @@
+.submit-btn:hover {
+  color: white;
+  background-color: red;
+  transition: 0.5s;
+}

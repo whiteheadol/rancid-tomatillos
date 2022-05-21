@@ -21,8 +21,9 @@ class SortInput extends Component {
 
   render() {
     return (
-      <form>
+      <form className="form-layout">
         <input
+        className="input-box"
         type="text"
         placeholder="search by name"
         name="search"
@@ -30,7 +31,7 @@ class SortInput extends Component {
         value={this.state.search}
         onChange={event => this.handleChange(event)}
         />
-        <button className="submit-button" onClick={event => this.clearSearch(event)}>Clear Search</button>
+        <button className="submit-btn" onClick={event => this.clearSearch(event)}>Clear Search</button>
       </form>
     )
   }
