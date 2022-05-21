@@ -31,7 +31,6 @@ describe('Rancid Tomatillos', () => {
   });
 
   it('Should be able to click on a movie thumbnail to see its details', () => {
-    // We'll store our item text in a variable so we can reuse it
     cy.get('#694919').click()
     cy.contains('Money Plane:')
     cy.contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
@@ -50,6 +49,14 @@ describe('Rancid Tomatillos', () => {
     cy.get('.movie-thumbnail').should('have.length', 40)
     cy.get('.movie-thumbnail').first().should('have.text', 'Money PlaneRating: 6.88')
     cy.get('.movie-thumbnail').last().should('have.text', 'I Still BelieveRating: 3.83')
+
+  });
+
+  it('Should be able to search for a movie by name', () => {
+    cy.get('form').contains()
+    cy.get('.movie-thumbnail').should('have.length', 40)
+    // cy.get('.movie-thumbnail').first().should('have.text', 'Money PlaneRating: 6.88')
+    // cy.get('.movie-thumbnail').last().should('have.text', 'I Still BelieveRating: 3.83')
 
   });
 });
