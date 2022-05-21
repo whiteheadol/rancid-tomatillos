@@ -4,7 +4,7 @@ import MovieDetails from '../MovieDetails/MovieDetails.js';
 import SortInput from '../SortInput/SortInput.js';
 import Error from '../Error/Error.js';
 import './App.css';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 class App extends Component {
