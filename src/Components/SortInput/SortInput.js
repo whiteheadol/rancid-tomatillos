@@ -14,23 +14,22 @@ class SortInput extends Component {
     this.props.updateSearchedMovies(event.target.value)
   }
 
-  clearSearch = event => {
-    // this.setState({ search: 'any' })
-    this.props.updateSearchedMovies('')
-  }
 
   render() {
     return (
-      <form>
-        <input
-        type="text"
-        placeholder="search by name"
-        name="search"
-        className="search-input"
-        value={this.state.search}
-        onChange={event => this.handleChange(event)}
-        />
-        <button className="submit-button" onClick={event => this.clearSearch(event)}>Clear Search</button>
+      <form className="form-layout">
+        <label className="input-label">
+        Search by name:
+        </label>
+          <input
+          className="input-box"
+          type="text"
+          placeholder=""
+          name="search"
+          className="search-input"
+          value={this.state.search}
+          onChange={event => this.handleChange(event)}
+          />
       </form>
     )
   }
