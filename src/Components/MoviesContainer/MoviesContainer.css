@@ -1,11 +1,12 @@
 .movies-container {
   display: flex;
   flex-wrap: wrap;
-  overflow-y: scroll;
   justify-content: center;
+  overflow-y: scroll;
 }
+
 .load-error {
-  font-size: 40px;
   color: white;
+  font-size: 40px;
   padding-bottom: 800px
 }

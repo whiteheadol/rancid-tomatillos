@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer.js';
 import MovieDetails from '../MovieDetails/MovieDetails.js';
 import SortInput from '../SortInput/SortInput.js';
+import Error from '../Error/Error.js';
 import './App.css';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
       .then(response => {
         if (response.ok) {
+          this.setState({ error: false })
           return response.json()
         } else {
           throw Error(response.statusText);
@@ -39,19 +41,20 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="page-header">Rancid Tomatillos</h1>
-        <Route exact path='/' render={ () => {
-          return <div className="main-page">
-            <SortInput updateSearchedMovies={this.updateSearchedMovies} />
-            <MoviesContainer movies={this.state.movies} error={this.state.error} searchBy={this.state.searchBy} />
-          </div>
-        }}
-        />
-        <Route
-          exact path='/:id'
-          render={({match}) => {
-            return <MovieDetails currentId={match.params.id} />
-          } } />
-        <Redirect to="/" />
+        <Switch>
+          <Route exact path="/" render={ () => {
+            return <div className="main-page">
+              <SortInput updateSearchedMovies={this.updateSearchedMovies} />
+              <MoviesContainer movies={this.state.movies} error={this.state.error} searchBy={this.state.searchBy} />
+            </div>
+          }}
+          />
+          <Route
+            exact path="/:id"
+            render={({match}) => {
+              return <MovieDetails currentId={match.params.id} />
+            } } />
+        </Switch>
       </div>
     );
   }
