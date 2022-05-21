@@ -1,5 +1,15 @@
-.submit-btn:hover {
+.input-label {
+  padding-right: 5px;
   color: white;
-  background-color: red;
-  transition: 0.5s;
+}
+
+.form-layout {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 5%
+}
+
+.input-box {
+  border: none;
+  border-radius: 30px;
 }
