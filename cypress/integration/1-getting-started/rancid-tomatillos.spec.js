@@ -31,7 +31,6 @@ describe('Rancid Tomatillos', () => {
   });
 
   it('Should be able to click on a movie thumbnail to see its details', () => {
-    // We'll store our item text in a variable so we can reuse it
     cy.get('#694919').click()
     cy.contains('Money Plane:')
     cy.contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
