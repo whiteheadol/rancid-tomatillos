@@ -53,10 +53,10 @@ describe('Rancid Tomatillos', () => {
   });
 
   it('Should be able to search for a movie by name', () => {
-    cy.get('form').contains()
-    cy.get('.movie-thumbnail').should('have.length', 40)
-    // cy.get('.movie-thumbnail').first().should('have.text', 'Money PlaneRating: 6.88')
-    // cy.get('.movie-thumbnail').last().should('have.text', 'I Still BelieveRating: 3.83')
-
-  });
+  cy.get('form').contains('Search by name:')
+  cy.get('input[name="search"]')
+    .type('ava')
+    .should('have.value', 'ava')
+  cy.get('.movie-thumbnail').should('have.length', 1)
+});
 });
