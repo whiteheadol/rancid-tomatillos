@@ -61,7 +61,7 @@ class MovieDetails extends Component {
             </div>
           }
           {this.state.error && <h3 className="load-error">Sorry, there was an error. Please try again later.</h3>}
-            <Link to={`/`}><button className="back-to-homepage" ><strong>Back to Home</strong></button></Link>
+            <Link to={`/`}><button className="back-to-homepage" onClick={() => this.props.clearSearch()}><strong>Back to Home</strong></button></Link>
           </div>
     )
   }
