@@ -11,6 +11,11 @@
   width: 16vw;
 }
 
+.movie-thumbnail:hover {
+  transform: scale(1.06);
+  transition: .6s;
+}
+
 .nav-link {
   height: 80%;
   width: 100%;
