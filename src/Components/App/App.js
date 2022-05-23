@@ -36,6 +36,10 @@ class App extends Component {
     this.setState({ searchBy: input })
   }
 
+  clearSearch = () => {
+    this.setState({ searchBy: 'any' });
+  }
+
   render() {
     return (
       <div className="App">
@@ -51,7 +55,7 @@ class App extends Component {
           <Route
             exact path="/:id"
             render={({match}) => {
-              return <MovieDetails currentId={match.params.id} />
+              return <MovieDetails currentId={match.params.id} clearSearch={this.clearSearch} />
             } } />
         </Switch>
       </div>
