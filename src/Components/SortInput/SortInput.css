@@ -1,6 +1,8 @@
 .input-label {
   color: white;
-  padding-right: 5px;
+  padding-right: 10px;
+  font-size: 30px;
+  margin-left: 55px
 }
 
 .form-layout {

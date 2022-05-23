@@ -32,6 +32,8 @@
 
 .movie-title, .movie-rating {
   margin: 0;
+  padding-left: 5px;
+  padding-right: 5px
 }
 
 .movie-title {
