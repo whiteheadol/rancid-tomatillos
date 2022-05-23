@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer.js';
 import MovieDetails from '../MovieDetails/MovieDetails.js';
 import SortInput from '../SortInput/SortInput.js';
-import Error from '../Error/Error.js';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 

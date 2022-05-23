@@ -13,7 +13,7 @@
   box-shadow: 0px 8px 15px black;
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: 90%;
   justify-content: center;
   width: 80%;
 }
@@ -21,14 +21,13 @@
 .movie-text {
   align-items: center;
   background: rgba(255, 255, 255, 0.6);
-  background-color: white;
   backdrop-filter: blur(2px);
   border-radius: 5px;
   color: black;
   display: flex;
   flex-direction: column;
   font-style: bolder;
-  height: 70%;
+  height: 80%;
   padding: 10px;
   width: 60%;
 }
@@ -38,10 +37,16 @@
   border: none;
   border-radius: 5px;
   color: white;
+  cursor: pointer;
   font-size: 22px;
   height: 60px;
   margin: 15px;
   width: 180px;
+}
+
+button:hover {
+  transform: scale(1.06);
+  transition: .6s;
 }
 
 p {
