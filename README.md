@@ -1,31 +1,29 @@
 # Rancid Tomatillos
 
-## A Front End Dev Paired Project by [Olivia Whitehead](https://github.com/whiteheadol?tab=repositories) [Kevin King](https://github.com/King13k?tab=repositories)
-This is a paired project that was built by using React & Cypress along with self knowledge and resources like peers.
+### A Paired Front End Projet by [Olivia Whitehead](https://github.com/whiteheadol?tab=repositories) & [Kevin King](https://github.com/King13k?tab=repositories)
 
+### Project Manager [Robbie Jaeger](https://github.com/robbiejaeger)
 
-## Project Manager [Robbie Jaeger](https://github.com/robbiejaeger)
-
-## Technologies Used:
+### Technologies Used:
 - JSX
 - CSS
 - React & React Router
 - Cypress
 - Java Script
 
-### Deployment Link
-* [Deployment Link](https://rancid-tomatillos-1.herokuapp.com/)
+### Deployment Link:
+* Users can visit the deployed site [here](https://rancid-tomatillos-1.herokuapp.com/).
 
-#### Links
+#### Links:
 *  [Repository Links](https://github.com/whiteheadol/rancid-tomatillos)
 
-#### Learning Goals
+#### Learning Goals:
 * Gain competency with React fundamentals
-* Learn how to test React components & asynchronous JS
+* Learn how to test React components & asynchronous JS using Cypress
 * Practice refactoring
 * Create a multi-page UX using Router
 
-#### Attributions
+#### Attributions:
 * [Project Spec](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
 * [Turing School of Software & Design](https://frontend.turing.edu/)
 
